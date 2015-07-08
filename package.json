@@ -1,0 +1,32 @@
+{
+  "name": "da",
+  "version": "0.0.1",
+  "description": "digital art",
+  "main": "index.js",
+  "scripts": {
+    "build": "node_modules/.bin/webpack",
+    "start": "node_modules/.bin/webpack-dev-server --hot",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tien-Hao Chang",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^5.6.15",
+    "babel-loader": "^5.3.1",
+    "css-loader": "^0.15.2",
+    "file-loader": "^0.8.4",
+    "html-webpack-plugin": "^1.6.0",
+    "jade": "^1.11.0",
+    "jade-loader": "^0.7.1",
+    "jquery": "^2.1.4",
+    "livescript-loader": "^0.1.5",
+    "node-libs-browser": "^0.5.2",
+    "normalize.css": "^3.0.3",
+    "react": "^0.13.3",
+    "style-loader": "^0.12.3",
+    "stylus-loader": "^1.2.1",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.10.1",
+    "webpack-dev-server": "^1.10.1"
+  }
+}
