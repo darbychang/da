@@ -1,33 +1,33 @@
-var htmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer')
+const config = require('./config')
+const webpack = require('webpack')
+
 module.exports = {
-  entry: './app/entry.js',
-  resolve: {
-    alias: {
-      jquery: '../node_modules/jquery/dist/jquery.min.js',
-      react: '../node_modules/react/dist/react.min.js'
-    }
+  devServer: {
+    allowedHosts: config.allowedHosts,
+    contentBase: false,
+    host: '0.0.0.0',
+    port: config.webpackDevServerPort,
+    stats: { colors: true, modules: false },
+  },
+  entry: './app/app.jsx',
+  module: {
+    loaders: [
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' },
+      { test: /\.ls$/, loader: 'livescript-loader' },
+      { test: /\.sass$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          { loader: 'postcss-loader', options: { plugins: [autoprefixer] } },
+          'sass-loader',
+        ],
+      },
+    ],
   },
   output: {
     filename: 'app.js',
-    path: 'build'
+    path: `${__dirname}/dist`,
   },
-  module: {
-    loaders: [
-      { test: /\.css$/, loader: 'style!css' },
-      { test: /\.jade$/, loader: 'jade' },
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.ls$/, loader: 'livescript' },
-      { test: /\.(jpg|png)$/, loader: 'url?limit=100000' },
-      { test: /\.styl$/, loader: 'style!css!stylus' }
-    ],
-    noParse: /jquery|react/
-  },
-  plugins: [
-    new htmlWebpackPlugin({ title: 'da' })
-  ],
-  devServer: {
-    contentBase: './build',
-    inline: true
-  }
-};
-// vi:et:nowrap
+}
