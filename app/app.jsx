@@ -1,4 +1,3 @@
-import '!file-loader?name=index.html!extract-loader!html-loader!pug-html-loader!./index.pug'
 import './app.sass';
 
 var opt = {
@@ -28,7 +27,7 @@ class App extends React.Component {
 ReactDOM.render(<App />, document.getElementById('app'));
 
 var pipes = []
-import pipe from './pipe.ls'
+import pipe from './pipe'
 pipes.push(pipe)
 
 function draw() {
