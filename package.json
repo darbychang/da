@@ -19,7 +19,7 @@
     "sass": "^1.17.2"
   },
   "dependencies": {
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
     "react": "^16.0.0",
     "react-dom": "^16.8.3"
   }
